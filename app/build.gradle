@@ -53,6 +53,10 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.15.1'
 
+    //livedata
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+
     //cameraX
     implementation "androidx.camera:camera-camera2:1.2.2"
     implementation "androidx.camera:camera-lifecycle:1.2.2"
