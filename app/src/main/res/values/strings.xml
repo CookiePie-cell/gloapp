@@ -10,4 +10,10 @@
     <string name="failed_camera">Failed to open camera</string>
     <string name="take_photo">TAKE PHOTO</string>
     <string name="gallery">GALLERY</string>
+    <string name="diagnose_report">Laporan Analisis Penyakit</string>
+    <string name="Description">Deskripsi</string>
+    <string name="cause">Penyebab</string>
+    <string name="prevention">Cara Pencegahan</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="disease_picture">Foto penyakit</string>
 </resources>

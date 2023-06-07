@@ -26,89 +26,96 @@
                 android:gravity="center"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Laporan Analisis Penyakit"
+                android:text="@string/diagnose_report"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView
+                android:id="@+id/imgDiseasePhoto"
                 android:layout_width="240dp"
                 android:layout_height="280dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="centerCrop"
+                android:contentDescription="@string/disease_picture"
                 android:layout_marginTop="16dp"
                 tools:src="@drawable/ic_launcher_background"/>
 
             <TextView
+                android:id="@+id/tvDiseaseDiagnose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:gravity="center"
-                android:text="Jerawat"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                tools:text="Jerawat"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Deskripsi"
+                android:text="@string/Description"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"/>
 
             <TextView
+                android:id="@+id/tvDiseaseDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. "
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."
                 android:textSize="16sp"
                 android:layout_marginHorizontal="32dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Penyebab"
+                android:text="@string/cause"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"/>
 
             <TextView
+                android:id="@+id/tvDiseaseCause"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. "
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. "
                 android:textSize="16sp"
                 android:layout_marginHorizontal="32dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cara Pencegahan"
+                android:text="@string/prevention"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"/>
 
             <TextView
+                android:id="@+id/tvDiseasePrevention"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. "
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. "
                 android:textSize="16sp"
                 android:layout_marginHorizontal="32dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Disclaimer"
+                android:text="@string/disclaimer"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"/>
 
             <TextView
+                android:id="@+id/tvDiseaseDisclaimer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
                 android:textSize="16sp"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginBottom="16dp"/>

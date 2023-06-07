@@ -20,7 +20,7 @@ class UploadViewModel(private val diagnoseRepository: DiagnoseRepository) : View
 
         val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-            "photo",
+            "file",
             reducedFile.name,
             requestImageFile
         )

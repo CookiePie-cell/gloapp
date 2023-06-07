@@ -1,5 +1,6 @@
 package com.salugan.gloapp.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.salugan.gloapp.data.retrofit.responses.DiagnoseResponse
@@ -15,6 +16,7 @@ class DiagnoseRepository(
     ) : LiveData<Result<DiagnoseResponse>> = liveData {
         emit(Result.Loading)
         try {
+            Log.d("wkwk", "wkwkwkasdasd")
             val response = apiService.getDiagnose(file)
             emit(Result.Success(response))
         } catch (e: Exception) {

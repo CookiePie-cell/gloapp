@@ -1,11 +1,13 @@
 package com.salugan.gloapp.ui.activities.camera
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -15,6 +17,10 @@ import androidx.core.content.ContextCompat
 import com.salugan.gloapp.R
 import com.salugan.gloapp.databinding.ActivityCameraBinding
 import com.salugan.gloapp.utils.createFile
+import com.salugan.gloapp.data.Result
+import com.salugan.gloapp.ui.ViewModelFactory
+import com.salugan.gloapp.ui.activities.result.skin_disease.DiseaseActivity
+import com.salugan.gloapp.utils.rotateFile
 
 class CameraActivity : AppCompatActivity() {
 
@@ -22,6 +28,9 @@ class CameraActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
+    private val uploadViewModel by viewModels<UploadViewModel> {
+        ViewModelFactory.getInstance()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
@@ -54,7 +63,23 @@ class CameraActivity : AppCompatActivity() {
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    Toast.makeText(this@CameraActivity, "Captured", Toast.LENGTH_SHORT).show()
+                    rotateFile(photoFile, cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
+                    uploadViewModel.uploadPhoto(photoFile).observe(this@CameraActivity) { result ->
+                        when(result) {
+                            is Result.Loading -> {}
+                            is Result.Success -> {
+                                Toast.makeText(this@CameraActivity, "Captured", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this@CameraActivity, DiseaseActivity::class.java)
+                                intent.putExtra(DiseaseActivity.EXTRA_DISEASE_PHOTO, photoFile)
+                                intent.putExtra(DiseaseActivity.EXTRA_DISEASE_DATA, result.data)
+                                startActivity(intent)
+                                finish()
+                            }
+                            is Result.Error -> {
+                                Toast.makeText(this@CameraActivity, result.error, Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
                 }
 
                 override fun onError(exception: ImageCaptureException) {
@@ -112,8 +137,4 @@ class CameraActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    companion object {
-        const val EXTRA_PICTURE = "picture"
-        const val EXTRA_CAMERA_STATE = "extra_camera_state"
-    }
 }
