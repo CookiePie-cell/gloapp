@@ -5,7 +5,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 @Parcelize
-data class DiseaseResponse(
+data class DiagnoseResponse(
 
 	@field:SerializedName("DiseaseName")
 	val diseaseName: String,

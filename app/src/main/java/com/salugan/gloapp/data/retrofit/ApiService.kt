@@ -1,6 +1,6 @@
 package com.salugan.gloapp.data.retrofit
 
-import com.salugan.gloapp.data.retrofit.responses.DiseaseResponse
+import com.salugan.gloapp.data.retrofit.responses.DiagnoseResponse
 import okhttp3.MultipartBody
 import retrofit2.http.Multipart
 import retrofit2.http.POST
@@ -11,5 +11,5 @@ interface ApiService {
     @POST("predict")
     suspend fun getDiagnose(
         @Part file: MultipartBody.Part
-    ) : DiseaseResponse
+    ) : DiagnoseResponse
 }
