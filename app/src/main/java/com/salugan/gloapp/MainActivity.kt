@@ -29,12 +29,23 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val requestPermissionLauncher =
+    private val requestPhotoPermissionLauncher =
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
             if (isGranted) {
-                showBottomSheet()
+                startActivity(Intent(this@MainActivity, CameraActivity::class.java))
+            } else {
+                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+    private val requestGalleryPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                Toast.makeText(this, "Open Gallery", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
             }
@@ -100,7 +111,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             fab.setOnClickListener {
-                requestPermissionLauncher.launch(CAMERA_PERMISSION)
+                showBottomSheet()
             }
         }
     }
@@ -114,11 +125,11 @@ class MainActivity : AppCompatActivity() {
         val gallery = bottomSheetView.findViewById<CardView>(R.id.skinTypeCheck)
 
         takePhoto.setOnClickListener {
-            startActivity(Intent(this@MainActivity, CameraActivity::class.java))
+            requestPhotoPermissionLauncher.launch(CAMERA_PERMISSION)
         }
 
         gallery.setOnClickListener {
-            Toast.makeText(this@MainActivity, "skin type", Toast.LENGTH_SHORT).show()
+            requestGalleryPermissionLauncher.launch(GALLERY_PERMISSION)
         }
 
         bottomSheetDialog.show()
@@ -132,7 +143,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val CAMERA_PERMISSION = android.Manifest.permission.CAMERA
-
-        private const val CAMERA_REQUEST_CODE_PERMISSION = 20
+        private const val GALLERY_PERMISSION = android.Manifest.permission.READ_EXTERNAL_STORAGE
     }
 }
