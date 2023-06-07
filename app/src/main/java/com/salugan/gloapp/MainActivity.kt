@@ -110,20 +110,15 @@ class MainActivity : AppCompatActivity() {
         val bottomSheetDialog = BottomSheetDialog(this@MainActivity,R.style.BottomSheetDialogTheme)
         bottomSheetDialog.setContentView(bottomSheetView)
 
-        val undertone = bottomSheetView.findViewById<CardView>(R.id.undertoneCheck)
-        val skinType = bottomSheetView.findViewById<CardView>(R.id.skinTypeCheck)
-        val skinDisease = bottomSheetView.findViewById<CardView>(R.id.skinDiseaseCheck)
+        val takePhoto = bottomSheetView.findViewById<CardView>(R.id.undertoneCheck)
+        val gallery = bottomSheetView.findViewById<CardView>(R.id.skinTypeCheck)
 
-        undertone.setOnClickListener {
+        takePhoto.setOnClickListener {
             startActivity(Intent(this@MainActivity, CameraActivity::class.java))
         }
 
-        skinType.setOnClickListener {
+        gallery.setOnClickListener {
             Toast.makeText(this@MainActivity, "skin type", Toast.LENGTH_SHORT).show()
-        }
-
-        skinDisease.setOnClickListener {
-            Toast.makeText(this@MainActivity, "skin disease", Toast.LENGTH_SHORT).show()
         }
 
         bottomSheetDialog.show()
