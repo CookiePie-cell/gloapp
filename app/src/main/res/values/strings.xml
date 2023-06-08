@@ -16,4 +16,5 @@
     <string name="prevention">Cara Pencegahan</string>
     <string name="disclaimer">Disclaimer</string>
     <string name="disease_picture">Foto penyakit</string>
+    <string name="accuracy">Accuracy: %s%%</string>
 </resources>

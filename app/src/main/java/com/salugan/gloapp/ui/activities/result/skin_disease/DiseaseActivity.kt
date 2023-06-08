@@ -4,9 +4,12 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.salugan.gloapp.R
 import com.salugan.gloapp.data.retrofit.responses.DiagnoseResponse
 import com.salugan.gloapp.databinding.ActivityDiseaseBinding
 import java.io.File
+import java.text.DecimalFormat
 
 class DiseaseActivity : AppCompatActivity() {
 
@@ -38,6 +41,11 @@ class DiseaseActivity : AppCompatActivity() {
                 tvDiseaseCause.text = it.cause
                 tvDiseasePrevention.text = it.prevention
                 tvDiseaseDisclaimer.text = it.disclaimer
+
+                val df = DecimalFormat("#.##")
+                val accuracy = df.format(it.accuracy.toDouble())
+
+                tvAccuracy.text = getString(R.string.accuracy, accuracy)
             }
         }
 
@@ -49,6 +57,5 @@ class DiseaseActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_DISEASE_DATA = "extra_disease_data"
         const val EXTRA_DISEASE_PHOTO = "extra_disease_photo"
-        const val EXTRA_DISEASE_CAMERA_STATE = "extra_disease_camera_state"
     }
 }

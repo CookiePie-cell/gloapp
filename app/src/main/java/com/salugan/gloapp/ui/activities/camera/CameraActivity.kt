@@ -114,6 +114,7 @@ class CameraActivity : AppCompatActivity() {
                     preview,
                     imageCapture
                 )
+
             } catch (exc: Exception) {
                 Toast.makeText(
                     this@CameraActivity,

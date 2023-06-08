@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/diagnose_report"
@@ -44,6 +45,7 @@
                 android:id="@+id/tvDiseaseDiagnose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginHorizontal="16dp"
                 android:gravity="center"
                 android:textSize="20sp"
@@ -52,8 +54,22 @@
                 tools:text="Jerawat"/>
 
             <TextView
+                android:id="@+id/tvAccuracy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:text="@string/accuracy"
+                tools:text="Accuracy: 99.8%"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="@string/Description"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -64,6 +80,7 @@
                 android:id="@+id/tvDiseaseDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."
                 android:textSize="16sp"
                 android:layout_marginHorizontal="32dp"/>
@@ -73,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/cause"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"/>
@@ -81,6 +99,7 @@
                 android:id="@+id/tvDiseaseCause"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. "
                 android:textSize="16sp"
                 android:layout_marginHorizontal="32dp"/>
@@ -90,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/prevention"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"/>
@@ -98,6 +118,7 @@
                 android:id="@+id/tvDiseasePrevention"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit. "
                 android:textSize="16sp"
                 android:layout_marginHorizontal="32dp"/>
@@ -108,6 +129,7 @@
                 android:text="@string/disclaimer"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"/>
 
@@ -117,6 +139,7 @@
                 android:layout_height="wrap_content"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginBottom="16dp"/>
         </LinearLayout>
