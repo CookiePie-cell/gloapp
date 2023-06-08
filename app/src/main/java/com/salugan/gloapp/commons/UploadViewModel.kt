@@ -1,4 +1,4 @@
-package com.salugan.gloapp.ui.activities.camera
+package com.salugan.gloapp.commons
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

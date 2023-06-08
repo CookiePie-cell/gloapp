@@ -28,16 +28,10 @@
             android:name=".ui.activities.webview.NewsWebView"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.result.skintype.SkinType"
-            android:exported="false" />
-        <activity
             android:name=".ui.activities.result.skin_disease.DiseaseActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.result.undertone.UndertoneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

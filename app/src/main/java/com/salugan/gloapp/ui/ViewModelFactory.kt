@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.salugan.gloapp.data.DiagnoseRepository
 import com.salugan.gloapp.di.Injection
-import com.salugan.gloapp.ui.activities.camera.UploadViewModel
+import com.salugan.gloapp.commons.UploadViewModel
 
 class ViewModelFactory private constructor(
     private val diagnoseRepository: DiagnoseRepository
