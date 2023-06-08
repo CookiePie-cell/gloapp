@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
@@ -28,6 +29,8 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
     private var imageCapture: ImageCapture? = null
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+    private var cameraProvider: ProcessCameraProvider? = null
+    private var previewUseCase: Preview? = null
 
     private val uploadViewModel by viewModels<UploadViewModel> {
         ViewModelFactory.getInstance()
@@ -55,8 +58,9 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun takePhoto() {
+        showProgressBar(true)
+        Toast.makeText(this@CameraActivity, "Processing", Toast.LENGTH_SHORT).show()
         val imageCapture = imageCapture ?: return
-
         val photoFile = createFile(application)
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
         imageCapture.takePicture(
@@ -67,8 +71,11 @@ class CameraActivity : AppCompatActivity() {
                     rotateFile(photoFile, cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
                     uploadViewModel.uploadPhoto(photoFile).observe(this@CameraActivity) { result ->
                         when(result) {
-                            is Result.Loading -> {}
+                            is Result.Loading -> {
+//                                showProgressBar(true)
+                            }
                             is Result.Success -> {
+                                showProgressBar(false)
                                 Toast.makeText(this@CameraActivity, "Captured", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this@CameraActivity, DiseaseActivity::class.java)
                                 intent.putExtra(DiseaseActivity.EXTRA_DISEASE_PHOTO, photoFile)
@@ -77,6 +84,7 @@ class CameraActivity : AppCompatActivity() {
                                 finish()
                             }
                             is Result.Error -> {
+                                showProgressBar(false)
                                 Toast.makeText(this@CameraActivity, result.error, Toast.LENGTH_SHORT).show()
                             }
                         }
@@ -98,18 +106,20 @@ class CameraActivity : AppCompatActivity() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
         cameraProviderFuture.addListener({
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            cameraProvider = cameraProviderFuture.get()
             val preview = Preview.Builder()
                 .build()
                 .also {
                     it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
                 }
 
+            previewUseCase = preview
+
             imageCapture = ImageCapture.Builder().build()
 
             try {
-                cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(
+                cameraProvider?.unbindAll()
+                cameraProvider?.bindToLifecycle(
                     this,
                     cameraSelector,
                     preview,
@@ -124,6 +134,36 @@ class CameraActivity : AppCompatActivity() {
                 ).show()
             }
         }, ContextCompat.getMainExecutor(this))
+    }
+
+    private fun showProgressBar(isLoading: Boolean) {
+        if (isLoading) {
+            cameraProvider?.unbind(previewUseCase)
+            binding.progressBar3.visibility = View.VISIBLE
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            )
+        } else {
+            try {
+                cameraProvider?.unbindAll()
+                cameraProvider?.bindToLifecycle(
+                    this,
+                    cameraSelector,
+                    previewUseCase,
+                    imageCapture
+                )
+
+            } catch (exc: Exception) {
+                Toast.makeText(
+                    this@CameraActivity,
+                    getString(R.string.failed_camera),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            binding.progressBar3.visibility = View.GONE
+            window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+        }
     }
 
     private fun hideSystemUI() {

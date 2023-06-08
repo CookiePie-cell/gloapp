@@ -4,9 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+import android.view.*
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
@@ -32,6 +30,8 @@ import com.salugan.gloapp.utils.uriToFile
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var bottomSheetDialog: BottomSheetDialog
 
     private val uploadViewModel by viewModels<UploadViewModel> {
         ViewModelFactory.getInstance()
@@ -124,9 +124,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showProgressBar(show: Boolean) {
+        if (show) {
+            if (bottomSheetDialog.isShowing) {
+                bottomSheetDialog.dismiss()
+            }
+            binding.progressBar.visibility = View.VISIBLE
+            binding.contentContainer.alpha = 0.5f
+
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            )
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.contentContainer.alpha = 1f
+            window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+        }
+    }
+
+
     private fun showBottomSheet() {
         val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet, null)
-        val bottomSheetDialog = BottomSheetDialog(this@MainActivity, R.style.BottomSheetDialogTheme)
+        bottomSheetDialog = BottomSheetDialog(this@MainActivity, R.style.BottomSheetDialogTheme)
         bottomSheetDialog.setContentView(bottomSheetView)
 
         val takePhoto = bottomSheetView.findViewById<CardView>(R.id.undertoneCheck)
@@ -167,15 +187,18 @@ class MainActivity : AppCompatActivity() {
                 when(result) {
                     is Result.Loading -> {
                         Toast.makeText(this@MainActivity, "Processing", Toast.LENGTH_SHORT).show()
+                        showProgressBar(true)
                     }
                     is Result.Success -> {
+                        showProgressBar(false)
+                        Toast.makeText(this@MainActivity, "Success", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@MainActivity, DiseaseActivity::class.java)
                         intent.putExtra(DiseaseActivity.EXTRA_DISEASE_PHOTO, myFile)
                         intent.putExtra(DiseaseActivity.EXTRA_DISEASE_DATA, result.data)
                         startActivity(intent)
-                        finish()
                     }
                     is Result.Error -> {
+                        showProgressBar(false)
                         Toast.makeText(this@MainActivity, result.error, Toast.LENGTH_SHORT).show()
                     }
                 }
