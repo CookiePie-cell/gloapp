@@ -49,6 +49,10 @@ class DiseaseActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnHomeScreenFromDisease.setOnClickListener {
+            finish()
+        }
+
         photo.let { file ->
             binding.imgDiseasePhoto.setImageBitmap(BitmapFactory.decodeFile(file.path))
         }
