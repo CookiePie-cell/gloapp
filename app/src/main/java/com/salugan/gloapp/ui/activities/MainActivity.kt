@@ -21,6 +21,7 @@ import com.salugan.gloapp.data.Result
 import com.salugan.gloapp.databinding.ActivityMainBinding
 import com.salugan.gloapp.ui.ViewModelFactory
 import com.salugan.gloapp.ui.activities.camera.CameraActivity
+import com.salugan.gloapp.ui.activities.doctors.DoctorsActivity
 import com.salugan.gloapp.ui.activities.result.skin_disease.DiseaseActivity
 import com.salugan.gloapp.ui.activities.store.StoreActivity
 import com.salugan.gloapp.ui.fragments.profile.ProfileFragment
@@ -90,8 +91,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return if (menuItem.itemId == R.id.mStore) {
-                    val intent = Intent(this@MainActivity, StoreActivity::class.java)
+                return if (menuItem.itemId == R.id.mDoctors) {
+                    val intent = Intent(this@MainActivity, DoctorsActivity::class.java)
                     startActivity(intent)
                     true
                 } else true

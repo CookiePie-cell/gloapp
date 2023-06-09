@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/mStore"
+        android:id="@+id/mDoctors"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_store"
-        android:title="@string/store"/>
+        android:icon="@drawable/doctor_icon"
+        android:title="@string/doctors"/>
 </menu>

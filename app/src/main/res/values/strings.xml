@@ -17,4 +17,13 @@
     <string name="disclaimer">Disclaimer</string>
     <string name="disease_picture">Foto penyakit</string>
     <string name="accuracy">Accuracy: %s%%</string>
+    <string name="send_message">Send message</string>
+    <string name="experience">Experience</string>
+    <string name="about_doctor">About Doctor</string>
+    <string name="working_time">Working time</string>
+    <string name="book_appointment">Book Appointment</string>
+    <string name="consultation_fee">Consultation fee</string>
+    <string name="experience_value">%d Years</string>
+    <string name="consultation_fee_value">Rp %d</string>
+    <string name="doctors">doctors</string>
 </resources>

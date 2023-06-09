@@ -1,4 +1,4 @@
-package com.salugan.gloapp.ui.activities
+package com.salugan.gloapp.ui.activities.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
