@@ -1,5 +1,6 @@
 package com.salugan.gloapp.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.salugan.gloapp.R
 import com.salugan.gloapp.data.Doctor
 import com.salugan.gloapp.databinding.DoctorItemBinding
+import com.salugan.gloapp.ui.activities.detail.DoctorDetailActivity
 
 class ListDoctorAdapter(private val listDoctors: ArrayList<Doctor>)
     : RecyclerView.Adapter<ListDoctorAdapter.ViewHolder>(){
@@ -33,7 +35,9 @@ class ListDoctorAdapter(private val listDoctors: ArrayList<Doctor>)
                 tvWorkingHourItem.text = doctor.workingTime
             }
             itemView.setOnClickListener {
-                Toast.makeText(itemView.context, doctor.name, Toast.LENGTH_SHORT).show()
+                val intent = Intent(itemView.context, DoctorDetailActivity::class.java)
+                intent.putExtra(DoctorDetailActivity.EXTRA_DOCTOR, doctor)
+                itemView.context.startActivity(intent)
             }
         }
     }
