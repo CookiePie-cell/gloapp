@@ -23,7 +23,6 @@ import com.salugan.gloapp.ui.ViewModelFactory
 import com.salugan.gloapp.ui.activities.camera.CameraActivity
 import com.salugan.gloapp.ui.activities.doctors.DoctorsActivity
 import com.salugan.gloapp.ui.activities.result.skin_disease.DiseaseActivity
-import com.salugan.gloapp.ui.activities.store.StoreActivity
 import com.salugan.gloapp.ui.fragments.profile.ProfileFragment
 import com.salugan.gloapp.ui.fragments.timeline.TimelineFragment
 import com.salugan.gloapp.utils.uriToFile
