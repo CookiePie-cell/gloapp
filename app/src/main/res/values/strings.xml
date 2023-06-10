@@ -48,4 +48,10 @@
     <string name="failed_login">Login failed</string>
     <string name="success_reg">Registration success</string>
     <string name="failed_regis">Registration failed</string>
+    <string name="logout">Logout</string>
+    <string name="profile_capital">PROFILE</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone number</string>
+    <string name="password">Password</string>
 </resources>

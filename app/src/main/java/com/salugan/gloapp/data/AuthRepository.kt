@@ -5,6 +5,7 @@ import androidx.lifecycle.liveData
 import com.salugan.gloapp.data.retrofit.ApiService
 import com.salugan.gloapp.data.retrofit.responses.LoginResponse
 import com.salugan.gloapp.data.retrofit.responses.RegisterResponse
+import com.salugan.gloapp.data.retrofit.responses.UserResponse
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
@@ -12,6 +13,16 @@ import org.json.JSONObject
 class AuthRepository(
     private val apiService: ApiService
 ) {
+
+    fun getUser(username: String) : LiveData<Result<UserResponse>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.getUser(BASE_URL + "user/" + username)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            emit(Result.Error(e.message.toString()))
+        }
+    }
 
     fun login(username: String, password: String) : LiveData<Result<LoginResponse>> = liveData {
         emit(Result.Loading)

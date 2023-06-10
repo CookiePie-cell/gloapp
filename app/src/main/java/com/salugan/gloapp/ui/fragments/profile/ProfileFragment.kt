@@ -9,17 +9,19 @@ import android.view.ViewGroup
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.salugan.gloapp.R
-import com.salugan.gloapp.data.local.AuthPreference
+import androidx.fragment.app.viewModels
 import com.salugan.gloapp.databinding.FragmentProfileBinding
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import com.salugan.gloapp.data.Result
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
+    private val profileViewModel by viewModels<ProfileViewModel> {
+        ProfileViewModelFactory.getInstance(requireContext().dataStore)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,14 +34,29 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnLogout.setOnClickListener {
-            runBlocking {
-                launch {
-                    AuthPreference.getInstance(requireContext().dataStore).clearSession()
+
+        val context = requireActivity()
+        profileViewModel.getSession().observe(context) { sessionModel ->
+            val username = sessionModel.username
+            profileViewModel.getUser(username).observe(context) { result ->
+                when(result) {
+                    is Result.Loading -> {}
+                    is Result.Success -> {
+                        binding.apply {
+                            usernameEditText.setText(result.data.username)
+                            emailEditText.setText(result.data.email)
+                            phoneEditText.setText(result.data.mobile.toString())
+                        }
+                    }
+                    is Result.Error -> {}
                 }
             }
         }
 
+
+        binding.btnLogout.setOnClickListener {
+            profileViewModel.clearSession()
+        }
     }
 
     override fun onDestroyView() {
