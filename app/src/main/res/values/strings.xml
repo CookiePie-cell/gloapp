@@ -26,4 +26,26 @@
     <string name="experience_value">%d Years</string>
     <string name="consultation_fee_value">Rp %d</string>
     <string name="doctors">doctors</string>
+    <string name="error_email">Enter a correct email format</string>\
+    <string name="error_password">Password must have more than 8 characters</string>
+    <string name="hint_email">Enter email</string>
+    <string name="hint_password">Enter password</string>
+    <string name="hint_name">Enter name</string>
+    <string name="label_password">Password</string>
+    <string name="label_email">Email</string>
+    <string name="label_name">Name</string>
+    <string name="tv_register">Register</string>
+    <string name="already_have_account">Already have account?</string>
+    <string name="tv_logout">Logout</string>
+    <string name="tv_login">Login</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_phone">Phone</string>
+    <string name="phone_hint">Enter phone number</string>
+    <string name="register_now">Register now</string>
+    <string name="dont_have_account">Don\'t have account?</string>
+    <string name="error_empty_field">Must not be empty</string>
+    <string name="login_success">Login success</string>
+    <string name="failed_login">Login failed</string>
+    <string name="success_reg">Registration success</string>
+    <string name="failed_regis">Registration failed</string>
 </resources>
