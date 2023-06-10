@@ -1,5 +1,6 @@
 package com.salugan.gloapp.ui.fragments.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,13 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.commitNow
 import androidx.fragment.app.viewModels
 import com.salugan.gloapp.R
 import com.salugan.gloapp.databinding.FragmentLoginBinding
 import com.salugan.gloapp.ui.fragments.register.RegisterFragment
 import com.salugan.gloapp.data.Result
-import com.salugan.gloapp.ui.activities.MainActivity
+import com.salugan.gloapp.ui.activities.main.MainActivity
+
+private val Context.datastore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class LoginFragment : Fragment() {
 
@@ -22,7 +28,7 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel by viewModels<LoginViewModel> {
-        LoginViewModelFactory.getInstance()
+        LoginViewModelFactory.getInstance(requireContext().datastore)
     }
 
     override fun onCreateView(
@@ -62,8 +68,12 @@ class LoginFragment : Fragment() {
                             is Result.Loading -> showLoading(true)
                             is Result.Success -> {
                                 showLoading(false)
-                                Toast.makeText(requireActivity(), getString(R.string.login_success), Toast.LENGTH_SHORT).show()
 
+                                val name = result.data.username
+                                val token = result.data.token
+                                val isLogin = true
+                                viewModel.saveSession(name, token, isLogin)
+                                Toast.makeText(requireActivity(), getString(R.string.login_success), Toast.LENGTH_SHORT).show()
                                 startActivity(Intent(requireActivity(), MainActivity::class.java))
                                 requireActivity().finish()
                             }

@@ -1,13 +1,21 @@
 package com.salugan.gloapp.ui.activities.splash
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.asLiveData
+import com.salugan.gloapp.data.local.AuthPreference
 import com.salugan.gloapp.databinding.ActivitySplashBinding
-import com.salugan.gloapp.ui.activities.MainActivity
+import com.salugan.gloapp.ui.activities.main.MainActivity
 import com.salugan.gloapp.ui.activities.authentication.AuthenticationActivity
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class SplashActivity : AppCompatActivity() {
 
@@ -19,10 +27,16 @@ class SplashActivity : AppCompatActivity() {
         setContentView(splashBinding.root)
 
         supportActionBar?.hide()
-
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this@SplashActivity, AuthenticationActivity::class.java))
-            finish()
+            AuthPreference.getInstance(dataStore).getSession().asLiveData().observe(this) { result ->
+                if (result.isLogin) {
+                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                    finish()
+                } else {
+                    startActivity(Intent(this@SplashActivity, AuthenticationActivity::class.java))
+                    finish()
+                }
+            }
         }, DURATION)
     }
 

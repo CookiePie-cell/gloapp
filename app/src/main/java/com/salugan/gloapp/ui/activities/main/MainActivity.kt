@@ -1,5 +1,6 @@
-package com.salugan.gloapp.ui.activities
+package com.salugan.gloapp.ui.activities.main
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,9 @@ import androidx.activity.viewModels
 import androidx.cardview.widget.CardView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commitNow
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -20,12 +24,15 @@ import com.salugan.gloapp.commons.UploadViewModel
 import com.salugan.gloapp.data.Result
 import com.salugan.gloapp.databinding.ActivityMainBinding
 import com.salugan.gloapp.ui.ViewModelFactory
+import com.salugan.gloapp.ui.activities.authentication.AuthenticationActivity
 import com.salugan.gloapp.ui.activities.camera.CameraActivity
 import com.salugan.gloapp.ui.activities.doctors.DoctorsActivity
 import com.salugan.gloapp.ui.activities.result.skin_disease.DiseaseActivity
 import com.salugan.gloapp.ui.fragments.profile.ProfileFragment
 import com.salugan.gloapp.ui.fragments.timeline.TimelineFragment
 import com.salugan.gloapp.utils.uriToFile
+
+private val Context.datastore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +42,10 @@ class MainActivity : AppCompatActivity() {
 
     private val uploadViewModel by viewModels<UploadViewModel> {
         ViewModelFactory.getInstance()
+    }
+
+    private val mainViewModel by viewModels<MainViewModel> {
+        MainViewModelFactory.getInstance(datastore)
     }
 
     private val requestPhotoPermissionLauncher =
@@ -65,6 +76,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        mainViewModel.getSession().observe(this) { session ->
+            if (!session.isLogin) {
+                startActivity(Intent(this@MainActivity, AuthenticationActivity::class.java))
+                finish()
+            }
+        }
         val menuHost: MenuHost = this
 
         val timelineFragment = TimelineFragment()

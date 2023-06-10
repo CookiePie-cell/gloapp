@@ -46,7 +46,7 @@
             android:name=".ui.activities.result.skin_disease.DiseaseActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name=".ui.activities.main.MainActivity"
             android:exported="false" />
     </application>
 
