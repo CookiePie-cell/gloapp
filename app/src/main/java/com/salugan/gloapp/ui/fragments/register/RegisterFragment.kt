@@ -62,20 +62,22 @@ class RegisterFragment : Fragment() {
             if (password.isEmpty()) {
                 binding.editTextPasswordReg.error =getString(R.string.error_empty_field)
             } else {
-                registerViewModel.register(name, email, phone, password).observe(requireActivity()) { result ->
-                    when(result) {
-                        is Result.Loading -> showLoading(true)
-                        is Result.Success -> {
-                            showLoading(false)
-                            Toast.makeText(requireActivity(), getString(R.string.success_reg), Toast.LENGTH_SHORT).show()
-                            mFragmentManager.commitNow(allowStateLoss = true) {
-                                replace(R.id.auth_fragment, mLoginFragment, LoginFragment::class.java.simpleName)
+                if (password.length >= 6) {
+                    registerViewModel.register(name, email, phone, password).observe(requireActivity()) { result ->
+                        when(result) {
+                            is Result.Loading -> showLoading(true)
+                            is Result.Success -> {
+                                showLoading(false)
+                                Toast.makeText(requireActivity(), getString(R.string.success_reg), Toast.LENGTH_SHORT).show()
+                                mFragmentManager.commitNow(allowStateLoss = true) {
+                                    replace(R.id.auth_fragment, mLoginFragment, LoginFragment::class.java.simpleName)
+                                }
                             }
-                        }
-                        is Result.Error -> {
-                            showLoading(false)
-                            Toast.makeText(requireActivity(), getString(R.string.failed_regis), Toast.LENGTH_SHORT).show()
-                            Log.d("wkwk", result.error)
+                            is Result.Error -> {
+                                showLoading(false)
+                                Toast.makeText(requireActivity(), getString(R.string.failed_regis), Toast.LENGTH_SHORT).show()
+                                Log.d("wkwk", result.error)
+                            }
                         }
                     }
                 }

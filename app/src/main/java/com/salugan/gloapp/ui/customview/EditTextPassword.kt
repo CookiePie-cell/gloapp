@@ -38,7 +38,7 @@ class EditTextPassword : AppCompatEditText {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (!p0.isNullOrEmpty()) {
-                    error = if (p0.length < 8) {
+                    error = if (p0.length < 6) {
                         setBackgroundResource(R.drawable.edit_text_outline_red)
                         context.getString(R.string.error_password)
                     } else {

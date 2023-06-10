@@ -56,20 +56,22 @@ class LoginFragment : Fragment() {
             if (password.isEmpty()) {
                 binding.editTextPassword.error = getString(R.string.error_empty_field)
             }else {
-                viewModel.login(username, password).observe(requireActivity()) { result ->
-                    when(result) {
-                        is Result.Loading -> showLoading(true)
-                        is Result.Success -> {
-                            showLoading(false)
-                            Toast.makeText(requireActivity(), getString(R.string.login_success), Toast.LENGTH_SHORT).show()
+                if (password.length >= 6) {
+                    viewModel.login(username, password).observe(requireActivity()) { result ->
+                        when(result) {
+                            is Result.Loading -> showLoading(true)
+                            is Result.Success -> {
+                                showLoading(false)
+                                Toast.makeText(requireActivity(), getString(R.string.login_success), Toast.LENGTH_SHORT).show()
 
-                            startActivity(Intent(requireActivity(), MainActivity::class.java))
-                            requireActivity().finish()
-                        }
-                        is Result.Error -> {
-                            showLoading(false)
-                            Log.d("asdasd", result.error)
-                            Toast.makeText(requireActivity(), getString(R.string.failed_login), Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(requireActivity(), MainActivity::class.java))
+                                requireActivity().finish()
+                            }
+                            is Result.Error -> {
+                                showLoading(false)
+                                Log.d("asdasd", result.error)
+                                Toast.makeText(requireActivity(), getString(R.string.failed_login), Toast.LENGTH_SHORT).show()
+                            }
                         }
                     }
                 }
