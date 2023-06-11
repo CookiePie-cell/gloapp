@@ -1,6 +1,8 @@
 package com.salugan.gloapp.data.retrofit
 
 import com.salugan.gloapp.BuildConfig
+import com.salugan.gloapp.utils.TrustAllCerts
+import com.salugan.gloapp.utils.createTrustAllSSLSocketFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -9,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 class ApiConfig {
     companion object {
-        private const val BASE_URL = "http://192.168.1.7:5000"
+        private const val BASE_URL = "https://gloappservice.site/"
 
         fun getApiService(): ApiService {
             val loggingInterceptor = if (BuildConfig.DEBUG) {
@@ -21,8 +23,9 @@ class ApiConfig {
             val client = OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
                 .readTimeout(30, TimeUnit.SECONDS) // Increase the timeout duration (e.g., 30 seconds)
+                .sslSocketFactory(createTrustAllSSLSocketFactory()!!, TrustAllCerts()) // Bypass SSL certificate validation
+                .hostnameVerifier { _, _ -> true } // Bypass hostname verification
                 .build()
-
 
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
