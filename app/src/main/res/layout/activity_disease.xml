@@ -150,7 +150,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:text="@string/halaman_utama"
-            android:backgroundTint="@color/brown"
             android:layout_marginBottom="16dp" />
 
     </LinearLayout>
