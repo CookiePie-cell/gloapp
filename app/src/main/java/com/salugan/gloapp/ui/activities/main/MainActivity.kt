@@ -3,6 +3,7 @@ package com.salugan.gloapp.ui.activities.main
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -174,7 +176,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         gallery.setOnClickListener {
-            requestGalleryPermissionLauncher.launch(GALLERY_PERMISSION)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                requestGalleryPermissionLauncher.launch(GALLERY_PERMISSION_13)
+            }  else {
+                requestGalleryPermissionLauncher.launch(GALLERY_PERMISSION)
+            }
         }
 
         bottomSheetDialog.show()
@@ -226,5 +232,8 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val CAMERA_PERMISSION = android.Manifest.permission.CAMERA
         private const val GALLERY_PERMISSION = android.Manifest.permission.READ_EXTERNAL_STORAGE
+        @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+        private const val GALLERY_PERMISSION_13 = android.Manifest.permission.READ_MEDIA_IMAGES
+
     }
 }
