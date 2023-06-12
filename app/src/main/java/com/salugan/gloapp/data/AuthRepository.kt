@@ -59,6 +59,6 @@ class AuthRepository(
     }
 
     companion object {
-        const val BASE_URL = "http://192.168.1.7:8000/gloapp/"
+        const val BASE_URL = "https://gloapp-389203.et.r.appspot.com/gloapp/"
     }
 }
