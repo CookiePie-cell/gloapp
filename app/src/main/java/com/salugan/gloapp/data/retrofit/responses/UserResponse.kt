@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class UserResponse(
 
 	@field:SerializedName("mobile")
-	val mobile: Int,
+	val mobile: Long,
 
 	@field:SerializedName("_id")
 	val id: String,
