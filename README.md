@@ -12,13 +12,13 @@ The main idea behind the Inception architecture is to enhance the network's perf
 We used the 'Skindata' dataset already available on Kaggle. We added and edited the dataset as needed. This dataset contains 12 types of diseases: Acne, Dermatophyte Infection Ringworm, Eczema, Hair Diseases, Insect Bites and Stings, Nail Diseases, Pigmentary Disorders, Skin Cancer, Skin Allergy Urticaria, Vascular Tumors, Vasculitis, Versicolor. And the data must be in jpg format
 
 ### Reference
-* ●	Inception V3 :
+* Inception V3 :
 *   [Cloud Google](https://cloud.google.com/tpu/docs/inception-v3-advanced)
 *   [Keras](https://keras.io/api/applications/inceptionv3/)
 *   [Kaggle](https://www.kaggle.com/code/benhamner/running-inception-v3)
-* ●	CNN:
+* CNN:
 *   [Kaggle](https://www.kaggle.com/code/unajtheb/mask-detector-using-cnn-97-accuracy)
-* ●	Skin Disease:
+* Skin Disease:
 *   [Alodokter](https://www.alodokter.com/vitiligo)
 *   [Alodokter](https://www.alodokter.com/kanker-kulit-melanoma)
 *   [Hellosehat](https://hellosehat.com/penyakit-kulit/kulit-lainnya/penyakit-biduran/)
