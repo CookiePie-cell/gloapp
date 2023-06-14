@@ -29,4 +29,4 @@ We used the 'Skindata' dataset already available on Kaggle. We added and edited 
 *   [Hellosehat](https://hellosehat.com/penyakit-kulit/perawatan-rambut/penyakit-kulit-kepala/)
 *   [Mayoclinic](https://www.mayoclinic.org/first-aid/first-aid-insect-bites/basics/art-20056593)
 
-Model Data [Here](https://drive.google.com/file/d/1KowpvJ97CwLA61VMxbgq1dTnXUMONapT/view?usp=sharing)
+### Model Data [Here](https://drive.google.com/file/d/1KowpvJ97CwLA61VMxbgq1dTnXUMONapT/view?usp=sharing)
