@@ -140,7 +140,7 @@ In this section for model data machine learning using Flask python. Response fro
   >  http://:192.168.100.68:5000/predict
 
 **Example request**
- - form-data:
+form-data:
 | Name                  | Student ID | Path                |
 | --------------------- | ---------- | ------------------- |
 | Adinda Nur Halisyah   | M166DSY1747| Machine Learning    |
