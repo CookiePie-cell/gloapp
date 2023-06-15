@@ -96,3 +96,6 @@ In this section for login, register and reset password using express.js. Respons
   "msg": "Password berhasil diganti ...!",
 }
 ```
+<br>
+**NOTE**
+Several routes have yet to be explained, such as registerMail, authenticate, get username, generateOTP, VerifyOTP, createResetSession, and update user. Please try and explore further. Thank you
