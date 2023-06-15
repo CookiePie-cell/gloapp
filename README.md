@@ -29,7 +29,7 @@ In this section for login, register and reset password using express.js. Respons
 {
   "username" : "example123",
   "password" : "admin123",
-  "email": "example@gmail.com",s
+  "email": "example@gmail.com",
   "mobile": 8009860560,
   "profile": ""
 }
@@ -38,6 +38,6 @@ In this section for login, register and reset password using express.js. Respons
 - Status Code 200 OK
 ```json
 {
-  msg: "Selamat! Registrasi Berhasil"
+  "msg": "Selamat! Registrasi Berhasil"
 }
 ```
