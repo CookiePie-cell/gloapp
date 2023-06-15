@@ -21,7 +21,7 @@ In this section for login, register and reset password using express.js. Respons
 > `POST'
 
 **Register User**
-  > http://localhost:8000//gloapp/register
+  > http://localhost:8000/gloapp/register
 
 **Example request**
  - Raw Format
@@ -99,3 +99,60 @@ In this section for login, register and reset password using express.js. Respons
 
 **NOTE**
 - Several routes have yet to be explained, such as registerMail, authenticate, get username, generateOTP, VerifyOTP, createResetSession, and update user. Please try and explore further. Thank you
+
+
+# API Machine Learning
+In this section for model data machine learning using Flask python. Response from each URL using **JSON** format.
+
+**Base URL :**
+
+> http://:192.168.100.68:5000
+
+**Path :**
+> /
+
+**Method :**
+
+> `GET'
+
+**GET entrypoint link**
+  >  http://:192.168.100.68:5000
+
+**Example request**
+ - None
+
+**Example Response**
+- Status Code 200 OK
+```json
+{
+  "msg": "Method GET berhasil"
+}
+```
+
+**Path :**
+> /predict
+
+**Method :**
+
+> `POST'
+
+**GET entrypoint link**
+  >  http://:192.168.100.68:5000/predict
+
+**Example request**
+ - form-data:
+   key = file
+   value = acne.jpg
+
+**Example Response**
+- Status Code 200 OK
+```json
+{
+    "diseaseName": "Acne",
+    "accuracy": "99.79778",
+    "description": "Jerawat adalah masalah kulit yang terjadi ketika pori-pori kulit tersumbat oleh kotoran kotoran, debu, minyak, ataupun sel kulit mati.  Hal ini menyebabkan peradangan yang ditandai dengan munculnya benjolan kecil yang terkadang berisi nanah di atas kulit. Jerawat tidak hanya terjadi pada area wajah saja, tetapi seluruh bagian tubuh dengan kelenjar minyak terbanyak, seperti leher, bagian atas dada, dan punggung.",
+    "cause": "Penyakit Acne disebabkan oleh beberapa faktor, seperti produksi minyak berlebih oleh kelenjar sebum di kulit yang dapat menyumbat folikel rambut. Bakteri Propionibacterium acnes juga berperan dalam menyebabkan peradangan dan memperburuk kondisi jerawat. Faktor genetik, perubahan hormon, penggunaan kosmetik yang tidak cocok, serta stres juga dapat mempengaruhi timbulnya jerawat, dan pola makan yang tidak sehat.",
+    "prevention": "Ada beberapa langkah penting untuk mencegah Acne. Pertama, bersihkan riasan wajah sebelum tidur dan cuci muka dua kali sehari dengan pembersih yang sesuai. Mengelola stres dengan olahraga atau meditasi juga penting karena stres dapat memicu perubahan hormonal yang berkontribusi pada jerawat. Hindari pakaian ketat dan gunakan pakaian yang longgar berbahan bernapas. Pilih produk kosmetik non-komedogenik dan hindari yang mengandung minyak berlebih. Terakhir, jaga kebersihan tubuh dengan mandi setelah beraktivitas.",
+    "disclaimer": "Untuk diagnosa lebih lanjut terkait jenis penyakit yang Anda alami, silakan menghubungi dokter terkait. Apabila terjadi gejala yang lebih parah, segerakan untuk berkonsultasi kepada dokter kulit."
+}
+```
