@@ -11,6 +11,36 @@ GloApp GitHub Repositories of Bangkit Academy 2023 Capstone Project Team C23-PS2
 - List of doctors
 - Doctor's information
 
+## Dependencies
+
+- androidx.core:core-ktx:1.7.0
+- androidx.appcompat:appcompat:1.6.1
+- com.google.android.material:material:1.9.0
+- androidx.constraintlayout:constraintlayout:2.1.4
+- androidx.activity:activity-ktx:1.7.0
+- androidx.fragment:fragment-ktx:1.5.6
+
+### Retrofit
+- com.squareup.retrofit2:retrofit:2.9.0
+- com.squareup.retrofit2:converter-gson:2.9.0
+- com.squareup.okhttp3:logging-interceptor:4.9.0
+
+### Glide
+- com.github.bumptech.glide:glide:4.15.1
+
+### LiveData
+- androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1
+- androidx.lifecycle:lifecycle-livedata-ktx:2.6.1
+
+### CameraX
+- androidx.camera:camera-camera2:1.2.2
+- androidx.camera:camera-lifecycle:1.2.2
+- androidx.camera:camera-view:1.2.2
+
+- de.hdodenhof:circleimageview:3.1.0
+
+- androidx.datastore:datastore-preferences:1.0.0
+
 ## Screenshots
 <p align="center">
   <img src="./images/WhatsApp Image 2023-06-14 at 1.51.03 PM.jpeg" width="30%" />
