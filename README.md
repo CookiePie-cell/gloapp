@@ -11,8 +11,7 @@ In this section for login, register and reset password using express.js. Respons
 
 **Base URL :**
 
-> http://localhost:8000/
-
+> http://localhost:8000
 **Path :**
 
 > /gloapp/register
@@ -22,7 +21,7 @@ In this section for login, register and reset password using express.js. Respons
 > `POST'
 
 **Register User**
-  > http://localhost:8000/
+  > http://localhost:8000//gloapp/register
 
 **Example request**
  - Raw Format
@@ -33,4 +32,11 @@ In this section for login, register and reset password using express.js. Respons
   "email": "example@gmail.com",
   "mobile": 8009860560,
   "profile": ""
+}
+
+**Example Response**
+- status code 200 OK
+```json
+{
+  msg: "Selamat! Registrasi Berhasil"
 }
