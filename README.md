@@ -38,5 +38,5 @@ In this section for login, register and reset password using express.js. Respons
 - status code 200 OK
 ```json
 {
-  msg: "Selamat! Registrasi Berhasil"
+ 
 }
