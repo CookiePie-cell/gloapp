@@ -7,7 +7,7 @@ GloApp GitHub Repositories of Bangkit Academy 2023 Capstone Project Team C23-PS2
 Approximately 1.9 million people in Indonesia have experienced skin problems. However, there are several individuals who are unable to access healthcare due to time constraints and mobility limitations. Therefore, GloApp is here to assist the community in early diagnosis of skin diseases, wherever and whenever they are. GloApp will provide explanations about the experienced skin conditions, the causes of the diseases, and how to manage them. Additionally, we also offer a platform for online consultations with doctors for further explanations and treatment.
 
 <p align="center">
-	<img src="doc-pic/splash.jpg" width="25%"> &nbsp; &nbsp; &nbsp;
+	<img src="doc-pic/IMG-20230614-WA0043.jpg.jpg" width="25%"> &nbsp; &nbsp; &nbsp;
 	<img src="doc-pic/reg.jpg" width="25%"> &nbsp; &nbsp; &nbsp;
 	<img src="doc-pic/take.jpg" width="25%">
 </p>
