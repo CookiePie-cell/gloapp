@@ -141,7 +141,9 @@ In this section for model data machine learning using Flask python. Response fro
 
 **Example request**
  - form-data:
-   |key = file| value = acne.jpg|
+| Key                   | Value      |            
+| --------------------- | ---------- |
+| file                  | acne.jpg   | 
 
 **Example Response**
 - Status Code 200 OK
