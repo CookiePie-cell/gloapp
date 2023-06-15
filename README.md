@@ -29,7 +29,7 @@ In this section for login, register and reset password using express.js. Respons
 {
   "username" : "example123",
   "password" : "admin123",
-  "email": "example@gmail.com",
+  "email": "example@gmail.com",s
   "mobile": 8009860560,
   "profile": ""
 }
