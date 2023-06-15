@@ -21,10 +21,10 @@ In this section for login, register and reset password using express.js. Respons
 
 > `POST'
 
-- **Register User**
+**Register User**
   > http://localhost:8000/
 
- **Example request**
+**Example request**
  - Raw Format
 ```json
 {
