@@ -22,7 +22,7 @@ Approximately 1.9 million people in Indonesia have experienced skin problems. Ho
 | Adinda Nur Halisyah   | M166DSY1747| Machine Learning    |
 | Nurfian Dwi Noviani   | M166DSY2185| Machine Learning    |
 | Nicolas Raja O. M.    | C130DSX0663| Cloud Computing     |
-| Sahat Parulian	      | C309DSX2689| Cloud Computing     |
+| Sahat Parulian	| C309DSX2689| Cloud Computing     |
 | Muhamad Fiqih Ikhsan  | A166DSX2281| Mobile Development  |
 | Joseph Julio N.       | A333DSX1186| Mobile Development  |
 
