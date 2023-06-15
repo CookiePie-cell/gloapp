@@ -69,3 +69,30 @@ In this section for login, register and reset password using express.js. Respons
   "token": "SAKSNKANAKSNASNKQWNQOWHROQ91928491824192412JB41JB21 241B"
 }
 ```
+
+**Path :**
+> /gloapp/resetPassword
+
+**Method :**
+
+> `PUT'
+
+**Login User**
+  > http://localhost:8000/gloapp/resetPassword
+
+**Example request**
+ - Raw Format
+ - query required : username, code
+```json
+{
+  "username" : "example123",
+  "password" : "admin111",
+}
+```
+**Example Response**
+- Status Code 200 OK
+```json
+{
+  "msg": "Password berhasil diganti ...!",
+}
+```
