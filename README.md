@@ -42,6 +42,7 @@ In this section for login, register and reset password using express.js. Respons
 }
 ```
 <br>
+
 **Path :**
 > /gloapp/login
 
@@ -70,6 +71,7 @@ In this section for login, register and reset password using express.js. Respons
 }
 ```
 <br>
+
 **Path :**
 > /gloapp/resetPassword
 
@@ -129,6 +131,7 @@ In this section for model data machine learning using Flask python. Response fro
 }
 ```
 <br>
+
 **Path :**
 > /predict
 
