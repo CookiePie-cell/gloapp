@@ -41,3 +41,31 @@ In this section for login, register and reset password using express.js. Respons
   "msg": "Selamat! Registrasi Berhasil"
 }
 ```
+
+**Path :**
+> /gloapp/login
+
+**Method :**
+
+> `POST'
+
+**Login User**
+  > http://localhost:8000/gloapp/login
+
+**Example request**
+ - Raw Format
+```json
+{
+  "username" : "example123",
+  "password" : "admin123",
+}
+```
+**Example Response**
+- Status Code 200 OK
+```json
+{
+  "msg": "Login Berhasil",
+  "username": "example123",
+  "token": "SAKSNKANAKSNASNKQWNQOWHROQ91928491824192412JB41JB21 241B"
+}
+```
