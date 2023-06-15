@@ -33,3 +33,11 @@ In this section for login, register and reset password using express.js. Respons
   "mobile": 8009860560,
   "profile": ""
 }
+```
+**Example Response**
+- Status Code 200 OK
+```json
+{
+  msg: "Selamat! Registrasi Berhasil"
+}
+```
