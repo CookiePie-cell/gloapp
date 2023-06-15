@@ -136,7 +136,7 @@ In this section for model data machine learning using Flask python. Response fro
 
 > `POST'
 
-**GET entrypoint link**
+**Predict**
   >  http://:192.168.100.68:5000/predict
 
 **Example request**
