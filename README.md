@@ -12,8 +12,8 @@ In this section for login, register and reset password using express.js. Respons
 **Base URL :**
 
 > http://localhost:8000
-**Path :**
 
+**Path :**
 > /gloapp/register
 
 **Method :**
