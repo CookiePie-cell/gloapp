@@ -77,7 +77,7 @@ In this section for login, register and reset password using express.js. Respons
 
 > `PUT'
 
-**Login User**
+**Reset Password**
   > http://localhost:8000/gloapp/resetPassword
 
 **Example request**
