@@ -4,14 +4,14 @@ Creating **RESTful APIs** and deploying to [Google Cloud Platform](https://cloud
 by using [Google App Engine](https://cloud.google.com/appengine) and [Google Compute Engine](https://cloud.google.com/compute) for communication between **Machine Learning System Model** and **Mobile Development**. And Creating database in [Cloud NoSQL (Mongodb)](https://console.cloud.google.com/marketplace/product/mongodb/mdb-atlas-self-service?authuser=3&project=gloapp-389203).
 
 # RESTful APIs
-In making the **RESTful APIs** we use [Node.js](https://github.com/python) and [Python](https://www.python.org/) using the Framework with [Flask](https://flask.palletsprojects.com/en/2.0.x/) and [Express.js](https://expressjs.com/). For responses using **JSON** format. For each URL that can be used will be explained below.
+In making the **RESTful APIs** we use [Node.js](https://nodejs.org/en) and [Python](https://www.python.org/) using the Framework with [Flask](https://flask.palletsprojects.com/en/2.0.x/) and [Express.js](https://expressjs.com/). For responses using **JSON** format. For each URL that can be used will be explained below.
 
 # Authentication
 In this section for login, register and reset password using express.js. Response from each URL using **JSON** format.
 
 **Base URL :**
 
-> http://localhost:8000
+> https://gloapp-389203.et.r.appspot.com/
 
 **Path :**
 > /gloapp/register
@@ -21,7 +21,7 @@ In this section for login, register and reset password using express.js. Respons
 > `POST'
 
 **Register User**
-  > http://localhost:8000/gloapp/register
+  > https://gloapp-389203.et.r.appspot.com/gloapp/register
 
 **Example request**
  - Raw Format
@@ -51,7 +51,7 @@ In this section for login, register and reset password using express.js. Respons
 > `POST'
 
 **Login User**
-  > http://localhost:8000/gloapp/login
+  > https://gloapp-389203.et.r.appspot.com/gloapp/login
 
 **Example request**
  - Raw Format
@@ -80,7 +80,7 @@ In this section for login, register and reset password using express.js. Respons
 > `PUT'
 
 **Reset Password**
-  > http://localhost:8000/gloapp/resetPassword
+  > https://gloapp-389203.et.r.appspot.com/gloapp/resetPassword
 
 **Example request**
  - Raw Format
@@ -118,7 +118,7 @@ In this section for model data machine learning using Flask python. Response fro
 > `GET'
 
 **GET entrypoint link**
-  >  http://:192.168.100.68:5000
+  >  https://gloappservice.site/
 
 **Example request**
  - None
@@ -127,7 +127,7 @@ In this section for model data machine learning using Flask python. Response fro
 - Status Code 200 OK
 ```json
 {
-  "msg": "Method GET berhasil"
+  "msg": "gloapp"
 }
 ```
 <br>
@@ -140,7 +140,7 @@ In this section for model data machine learning using Flask python. Response fro
 > `POST'
 
 **Predict**
-  >  http://:192.168.100.68:5000/predict
+  >  https://gloappservice.site/predict
 
 **Example request**
 <br>
