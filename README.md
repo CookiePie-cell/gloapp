@@ -100,7 +100,7 @@ In this section for login, register and reset password using express.js. Respons
 ```
 
 **NOTE**
-- Several routes have yet to be explained, such as registerMail, authenticate, get username, generateOTP, VerifyOTP, createResetSession, and update user. Please try and explore further. Thank you
+- Some routes have been created but not yet explained, such as registerMail, authenticate, get username, generateOTP, VerifyOTP, createResetSession, and update user. Please download and try it yourself. Thank you
 
 
 # API Machine Learning
